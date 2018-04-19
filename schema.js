@@ -18,6 +18,7 @@ const typeDefs = [`
     department: String,
     id: String
     weeklySales: [WeeklySales]
+    inventory: [Inventory]
   }
 
   type WeeklySales {
@@ -27,10 +28,23 @@ const typeDefs = [`
     item: [Item]
   }
   
+  type Inventory {
+    committedInventory: Int,
+    dueThisWeek: Int,
+    nextReceiptDate: String,
+    onOrder: Int,
+    sku: String!,
+    storesWithInventory: Int,
+    totalInventory: Int,
+    totalOnOrder: Int
+    item: [Item]
+  }
+
   type Query {
     getAllItems: [Item]
     getItem(sku: String, id: String, item: String): [Item]
     weeklySales(sku: String, weekEndingDate: String): [WeeklySales]
+    getInventoryBySku(sku: String!): [Inventory]
   }
 `]
 
