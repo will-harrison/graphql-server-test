@@ -1,0 +1,3 @@
+/node_modules
+yarn.lock
+/rethinkdb_data
